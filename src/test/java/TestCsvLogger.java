@@ -139,6 +139,27 @@ public class TestCsvLogger
         assertEquals(exp, act);
     }
 
+    @Test void testDefaultLogDoubleArray()
+    {
+        double[] input = {1.1,2.2,3.3,4.4,5.5,6.6,7.7,8.8,9.9,10.01};
+        String exp = "1.1,2.2,3.3,4.4,5.5,6.6,7.7,8.8,9.9,10.01,";
+        String act = "";
+
+        Logger logger = new Logger("log");
+        logger.setToCSV();
+        logger.log(input);
+        try {
+            File defaultFile = getFile("log.csv");
+            BufferedReader reader = new BufferedReader(new FileReader(defaultFile));
+            act = reader.readLine();
+        } catch (IOException e) {
+            System.out.println("Unable to read default log.csv file");
+            e.printStackTrace();
+        }
+
+        assertEquals(exp, act);
+    }
+
     private File getFile(String name)
     {
         FileSystem fileSystem = FileSystems.getDefault();
