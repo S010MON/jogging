@@ -28,7 +28,7 @@ Note that there is no need to pass a file extention to the name.
     
 #### Specified name and location
 If you want to specify a location to save your logs, pass the `internalFilePath` parameter at the creation of the logger.  
-Note that the `internalFilePath` *must* start and end with `/` or you will recieve an error.
+Note that the `internalFilePath` **must** start and end with `/` or you will recieve an error.
 
     Logger logger = new Logger("/my/log/location/here/", "myLogName");
     logger.log("Because a vision softly creeping");
