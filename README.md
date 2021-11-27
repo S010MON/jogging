@@ -3,15 +3,31 @@
 A simple framework for logging to file in java without too much setup.  To use the framework, import the files directly into your project.
 
 ### Text Logging
-To create a logger, build a new instance of the Logger class:
+There are three types of .txt logging
+- Default
+- Specified name
+- Specified location and name
+
+##### Default
+To create a default logger, build a new instance of the Logger class.
+This will create a default `logs` folder in your project root and save as `/logs/log.txt`
 
     Logger logger = new Logger();
-    logger.log("My text to be appended to the log file");
- 
-This will create a default `log` folder in your project root and save as a .txt.  If you want to specify a location to save your logs, pass the `internalFilePath` parameter at the creation of the logger.  Note that the internalFilePath must start and end with '/' or you will recieve an error.
+    logger.log("Hello, darkness, my old friend");
 
-    Logger logger = new Logger("/my/log/location/here/");
-    logger.log("My text to be appended to the log file");
+##### Specified name
+If you want to specify a name to save your logs as, pass the `fileName` parameter at the creation of the logger.  
+Note that there is no need to pass a file extention to the name. 
+
+    Logger logger = new Logger("myLogName");
+    logger.log("I've come to talk with you again");
+    
+##### Specified name and location
+If you want to specify a location to save your logs, pass the `internalFilePath` parameter at the creation of the logger.  
+Note that the internalFilePath must start and end with '/' or you will recieve an error.
+
+    Logger logger = new Logger("/my/log/location/here/", "myLogName");
+    logger.log("Because a vision softly creeping");
 
 ### CSV Logging
 There exists a utility to log to CSV format instead using the `logCSV()` method.  This can either be done by passing a delimited string to the method like so:
