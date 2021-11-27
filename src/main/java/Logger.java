@@ -63,7 +63,6 @@ public class Logger
         try {
             FileWriter writer = getFileWriter();
             writer.write(str + "\n");
-//            writer.append("\n");
             writer.close();
         } catch (IOException e) {
             printExceptionMessage();
@@ -87,6 +86,30 @@ public class Logger
             for (String s : str)
             {
                 writer.write(s + delim);
+            }
+            writer.close();
+        } catch (IOException e) {
+            printExceptionMessage();
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Append a string to a new line of a {@code .csv} file
+     * Creates a new file if one cannot be found
+     * @param I		- The array of integers to append with comma delimiters
+     */
+    public void log(int[] I)
+    {
+        String delim = " ";
+        if(CSV)
+            delim = ",";
+
+        try {
+            FileWriter writer = getFileWriter();
+            for (int i : I)
+            {
+                writer.write(i + delim);
             }
             writer.close();
         } catch (IOException e) {
