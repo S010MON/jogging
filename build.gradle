@@ -6,24 +6,6 @@ plugins {
 group 'org.slf4j'
 version '1.0'
 
-publishing {
-    repositories {
-        maven {
-            name = "simple-logging-framework"
-            url = uri("https://maven.pkg.github.com/s010mon/simple-logging-framework")
-            credentials {
-                username = project.findProperty("gpr.user") ?: System.getenv("S010MON")
-                password = project.findProperty("gpr.key") ?: System.getenv("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")
-            }
-        }
-    }
-    publications {
-        gpr(MavenPublication) {
-            from(components.java)
-        }
-    }
-}
-
 repositories {
     mavenCentral()
 }
