@@ -37,6 +37,7 @@ public class Logger
      */
     public Logger(String internalFilePath, String fileName)
     {
+        internalFilePath = validatePath(internalFilePath);
         this.directoryPath = FilePath.getInternal(internalFilePath);
         this.fileName = fileName;
         createDirectory();
@@ -147,6 +148,7 @@ public class Logger
 
     public void setDirectoryPath(String directoryPath)
     {
+        directoryPath = validatePath(directoryPath);
         this.directoryPath = directoryPath;
     }
 
@@ -185,6 +187,15 @@ public class Logger
         System.out.println("unable to log to csv" +
                 "\nPath: " + directoryPath +
                 "\nName: " + fileName);
+    }
+
+    private String validatePath(String path)
+    {
+        if(!path.startsWith("/"))
+            path = "/" + path;
+        if(!path.endsWith("/"))
+            path = path + "/";
+        return path;
     }
 
     private String getDelimiter()
