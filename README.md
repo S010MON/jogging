@@ -42,7 +42,7 @@ There exists a utility to log to CSV format instead using the `log()` method.  S
     
  Or by passing an array of Strings or integers to the `log()` method which will format the strings with delimiters automatically:
  
-    String[] myStringArray = {"this","text","is","not","delimited"};
+    String[] myStringArray = {"And","the","vision","that","was","planted","in","my","brain"};
     logger.log(myStringArray);
     
     int[] myIntegerArray = {1,2,3,4,5,6,7,8,9};
