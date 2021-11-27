@@ -1,4 +1,4 @@
-![workflow](https://github.com/S010MON/simple-logging-framework/actions/workflows/linux.yml/badge.svg)
+![workflow](https://github.com/S010MON/jogging/actions/workflows/linux.yml/badge.svg)
 
 --------------------------------------------------------------------------------------
 
