@@ -96,6 +96,30 @@ public class Logger
         }
     }
 
+    /**
+     * Append a string to a new line of a {@code .csv} file
+     * Creates a new file if one cannot be found
+     * @param I		- The array of integers to append with comma delimiters
+     */
+    public void log(int[] I)
+    {
+        String delim = " ";
+        if(CSV)
+            delim = ",";
+
+        try {
+            FileWriter writer = getFileWriter();
+            for (int i : I)
+            {
+                writer.write(i + delim);
+            }
+            writer.close();
+        } catch (IOException e) {
+            printExceptionMessage();
+            e.printStackTrace();
+        }
+    }
+
     public void setToCSV()
     {
         CSV = true;

@@ -111,7 +111,28 @@ public class TestCsvLogger
             BufferedReader reader = new BufferedReader(new FileReader(defaultFile));
             act = reader.readLine();
         } catch (IOException e) {
-            System.out.println("Unable to read default log.txt file");
+            System.out.println("Unable to read default log.csv file");
+            e.printStackTrace();
+        }
+
+        assertEquals(exp, act);
+    }
+
+    @Test void testDefaultLogIntArray()
+    {
+        int[] input = {1,2,3,4,5,6,7,8,9,10};
+        String exp = "1,2,3,4,5,6,7,8,9,10,";
+        String act = "";
+
+        Logger logger = new Logger("log");
+        logger.setToCSV();
+        logger.log(input);
+        try {
+            File defaultFile = getFile("log.csv");
+            BufferedReader reader = new BufferedReader(new FileReader(defaultFile));
+            act = reader.readLine();
+        } catch (IOException e) {
+            System.out.println("Unable to read default log.csv file");
             e.printStackTrace();
         }
 
