@@ -45,4 +45,7 @@ There exists a utility to log to CSV format instead using the `log()` method.  S
     
     int[] myIntegerArray = {1,2,3,4,5,6,7,8,9};
     logger.log(myIntegerArray);
+
+    double[] myDoubleArray = {1.1,2.2,3.3,4.4,5.5};
+    logger.log(myDoubleArray);
     
