@@ -72,16 +72,13 @@ public class Logger
     }
 
     /**
-     * Append a string to a new line of a {@code .csv} file
+     * Append a string array to a new line of a {@code .csv} file
      * Creates a new file if one cannot be found
      * @param str		- The array of strings to append with comma delimiters
      */
     public void log(String[] str)
     {
-        String delim = "";
-        if(CSV)
-            delim = ",";
-
+        String delim = getDelimiter();
         try {
             FileWriter writer = getFileWriter();
             assert writer != null;
@@ -97,21 +94,39 @@ public class Logger
     }
 
     /**
-     * Append a string to a new line of a {@code .csv} file
+     * Append an integer array to a new line of a {@code .csv} file
      * Creates a new file if one cannot be found
      * @param I		- The array of integers to append with comma delimiters
      */
     public void log(int[] I)
     {
-        String delim = " ";
-        if(CSV)
-            delim = ",";
-
+        String delim = getDelimiter();
         try {
             FileWriter writer = getFileWriter();
             for (int i : I)
             {
                 writer.write(i + delim);
+            }
+            writer.close();
+        } catch (IOException e) {
+            printExceptionMessage();
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Append a double array to a new line of a {@code .csv} file
+     * Creates a new file if one cannot be found
+     * @param D		- The array of doubles to append with comma delimiters
+     */
+    public void log(double[] D)
+    {
+        String delim = getDelimiter();
+        try {
+            FileWriter writer = getFileWriter();
+            for (double d : D)
+            {
+                writer.write(d + delim);
             }
             writer.close();
         } catch (IOException e) {
@@ -170,5 +185,12 @@ public class Logger
         System.out.println("unable to log to csv" +
                 "\nPath: " + directoryPath +
                 "\nName: " + fileName);
+    }
+
+    private String getDelimiter()
+    {
+        if(CSV)
+            return ",";
+        return "";
     }
 }
