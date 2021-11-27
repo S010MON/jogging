@@ -6,6 +6,8 @@ public class Logger
 {
     private String directoryPath;
     private String fileName;
+    private boolean CSV = false;
+    private boolean append = true;
 
     /**
      * Default constructor path set to projectRoot/log/
@@ -58,38 +60,13 @@ public class Logger
      */
     public void log(String str)
     {
-        try
-        {
-            File file = getTxtFile();
-            FileWriter writer = new FileWriter(file, true);
-            writer.write(str);
-            writer.append("\n");
+        try {
+            FileWriter writer = getFileWriter();
+            writer.write(str + "\n");
+//            writer.append("\n");
             writer.close();
         } catch (IOException e) {
-            System.out.println("unable to log to csv" +
-                    "\nPath: " + directoryPath +
-                    "\nName: " + fileName);
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * Append a string to a new line of a {@code .csv} file
-     * Creates a new file if one cannot be found
-     * @param str		- The comma delimited string to append
-     */
-    public void logCSV(String str)
-    {
-        try {
-            File file = getCsvFile();
-            FileWriter writer = new FileWriter(file, true);
-            writer.write(str);
-            writer.append("\n");
-            writer.close();
-            } catch (IOException e) {
-            System.out.println("unable to log to csv" +
-                    "\nPath: " + directoryPath +
-                    "\nName: " + fileName);
+            printExceptionMessage();
             e.printStackTrace();
         }
     }
@@ -99,51 +76,74 @@ public class Logger
      * Creates a new file if one cannot be found
      * @param str		- The array of strings to append with comma delimiters
      */
-    public void logCSV(String[] str)
+    public void log(String[] str)
     {
+        String delim = " ";
+        if(CSV)
+            delim = ",";
+
         try {
-            File file = getCsvFile();
-            FileWriter writer = new FileWriter(file, true);
-            for (String s : str) {
-                writer.write(s + ",");
+            FileWriter writer = getFileWriter();
+            for (String s : str)
+            {
+                writer.write(s + delim);
             }
             writer.close();
         } catch (IOException e) {
-            System.out.println("unable to log to csv" +
-                    "\nPath: " + directoryPath +
-                    "\nName: " + fileName);
+            printExceptionMessage();
             e.printStackTrace();
         }
     }
 
-    private File getTxtFile()
+    public void setToCSV()
     {
-        String filePath = directoryPath + fileName + ".txt";
-        return  getFile(filePath);
+        CSV = true;
     }
 
-    private File getCsvFile()
+    public void setToTxt()
     {
-        String filePath = directoryPath + fileName + ".csv";
-        return  getFile(filePath);
+        CSV = false;
     }
 
-    private File getFile(String filePath)
+    public void setDirectoryPath(String directoryPath)
     {
+        this.directoryPath = directoryPath;
+    }
+
+    public void setFileName(String fileName)
+    {
+        this.fileName = fileName;
+    }
+
+    private FileWriter getFileWriter()
+    {
+        String filePath = directoryPath + fileName;
+        if(CSV)
+            filePath = filePath + ".csv";
+        else
+            filePath = filePath + ".txt";
         File file = new File(filePath);
-        try
-        {
-            if (!file.exists()) {
+
+        try {
+            if (!file.exists())
+            {
                 boolean success = file.createNewFile();
                 if (!success)
                     throw new RuntimeException("File: " + fileName + " was not created");
             }
-
+            return new FileWriter(file, append);
         }  catch(IOException e) {
             System.out.println("File not found");
             System.out.println("File path used: " + filePath);
             e.printStackTrace();
         }
-        return file;
+        return null;
+    }
+
+    private void printExceptionMessage()
+    {
+        System.out.println("unable to log to csv" +
+                "\nPath: " + directoryPath +
+                "\nName: " + fileName);
     }
 }
