@@ -1,4 +1,6 @@
 ![workflow](https://github.com/S010MON/jogging/actions/workflows/linux.yml/badge.svg)
+![workflow](https://github.com/S010MON/jogging/actions/workflows/windows.yml/badge.svg)
+![workflow](https://github.com/S010MON/jogging/actions/workflows/mac.yml/badge.svg)
 
 --------------------------------------------------------------------------------------
 
