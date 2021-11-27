@@ -2,7 +2,7 @@
 
 --------------------------------------------------------------------------------------
 
-# SLF4J - Simple Logging Framework for Java
+# Jogging - Simple Logging Framework for Java
 
 A simple framework for logging to file in java without too much setup.  To use the framework, import the files directly into your project.
 
