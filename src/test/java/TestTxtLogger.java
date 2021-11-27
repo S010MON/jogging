@@ -12,7 +12,7 @@ import java.nio.file.FileSystems;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestLogger
+public class TestTxtLogger
 {
     public static String testPath = "/logs/";
 
