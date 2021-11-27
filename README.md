@@ -4,7 +4,7 @@
 
 # Jogging - Simple Logging Framework for Java
 
-A simple framework for logging to file in java without too much setup.  To use the framework, import the files directly into your project.
+A simple framework for logging to file in java without too much setup. Intended for students and small projects where you want to get text logging up and running without worrying about imports, setup files, or trawling through documentation.  To use the framework, import all the source files directly into your project, everything runs on inbuilt libraries and logging can be done with two lines of code.
 
 ### Text Logging
 There are three types of .txt logging
