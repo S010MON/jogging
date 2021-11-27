@@ -34,15 +34,17 @@ Note that the `internalFilePath` *must* start and end with `/` or you will recie
     logger.log("Because a vision softly creeping");
 
 ### CSV Logging
-There exists a utility to log to CSV format instead using the `logCSV()` method.  This can either be done by passing a delimited string to the method like so:
+There exists a utility to log to CSV format instead using the `logCSV()` method.  Simply set the CSV parameter to true to change the output file extention.  Each line will be appended with a comma delimiter so that the code below creates the line _Left,its,seeds,while,I,was,sleeping,_ in the log file. 
 
-    String fileName = "log";
-    String myCSV = "this,text,is,already,delimited";
-    logger.logCSV(fileName, myCSV);
+    Logger logger = new Logger();
+    logger.setToCSV();
+    logger.log("Left,its,seeds,while,I,was,sleeping");
     
- Or by passing an array of Strings to the CSV method which will format the strings with delimiters automatically
+ Or by passing an array of Strings or integers to the `log()` method which will format the strings with delimiters automatically:
  
-    String fileName = "log";
     String[] myStringArray = {"this","text","is","not","delimited"};
-    logger.logCSV(fileName, myStringArray);
+    logger.log(myStringArray);
+    
+    int[] myIntegerArray = {1,2,3,4,5,6,7,8,9};
+    logger.log(myIntegerArray);
     
