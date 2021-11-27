@@ -43,7 +43,8 @@ public class TestCsvLogger
         String act = "";
 
         Logger logger = new Logger();
-        logger.logCSV(exp);
+        logger.setToCSV();
+        logger.log(exp);
         try {
             File defaultFile = getFile("log.csv");
             BufferedReader reader = new BufferedReader(new FileReader(defaultFile));
@@ -63,13 +64,14 @@ public class TestCsvLogger
         String act = "";
 
         Logger logger = new Logger();
-        logger.logCSV(input);
+        logger.setToCSV();
+        logger.log(input);
         try {
             File defaultFile = getFile("log.csv");
             BufferedReader reader = new BufferedReader(new FileReader(defaultFile));
             act = reader.readLine();
         } catch (IOException e) {
-            System.out.println("Unable to read default log.txt file");
+            System.out.println("Unable to read default log.csv file");
             e.printStackTrace();
         }
 
@@ -82,7 +84,8 @@ public class TestCsvLogger
         String act = "";
 
         Logger logger = new Logger("log");
-        logger.logCSV(exp);
+        logger.setToCSV();
+        logger.log(exp);
         try {
             File defaultFile = getFile("log.csv");
             BufferedReader reader = new BufferedReader(new FileReader(defaultFile));
@@ -101,7 +104,8 @@ public class TestCsvLogger
         String act = "";
 
         Logger logger = new Logger("log");
-        logger.logCSV(input);
+        logger.setToCSV();
+        logger.log(exp);
         try {
             File defaultFile = getFile("log.csv");
             BufferedReader reader = new BufferedReader(new FileReader(defaultFile));
