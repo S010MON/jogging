@@ -62,8 +62,8 @@ public class Logger
     {
         try {
             FileWriter writer = getFileWriter();
+            assert writer != null;
             writer.write(str + "\n");
-//            writer.append("\n");
             writer.close();
         } catch (IOException e) {
             printExceptionMessage();
@@ -78,12 +78,13 @@ public class Logger
      */
     public void log(String[] str)
     {
-        String delim = " ";
+        String delim = "";
         if(CSV)
             delim = ",";
 
         try {
             FileWriter writer = getFileWriter();
+            assert writer != null;
             for (String s : str)
             {
                 writer.write(s + delim);
