@@ -4,13 +4,10 @@
 
 # Jogging - Simple Logging Framework for Java
 
-A simple framework for logging to file in java without too much setup. Intended for students and small projects where you want to get text logging up and running without worrying about imports, setup files, or trawling through documentation.  To use the framework, import all the source files directly into your project, everything runs on inbuilt libraries and logging can be done with two lines of code.
+A simple framework for logging to file in java without too much setup. Intended for students and small projects where you want to get text logging up and running without worrying about imports, setup files, or trawling through documentation.  To use the framework, import all the source files directly into your project, everything runs on inbuilt libraries and logging can be done with two lines of code.  All information required to use the framework is described within this file.
 
 ### Text Logging
-There are three types of .txt logging
-- Default
-- Specified name
-- Specified location and name
+There are three types of .txt logging:
 
 #### Default
 To create a default logger, build a new instance of the Logger class.
@@ -34,11 +31,12 @@ Note that the `internalFilePath` **must** start and end with `/` or you will rec
     logger.log("Because a vision softly creeping");
 
 ### CSV Logging
-There exists a utility to log to CSV format instead using the `logCSV()` method.  Simply set the CSV parameter to true to change the output file extention.  Each line will be appended with a comma delimiter so that the code below creates the line _Left,its,seeds,while,I,was,sleeping,_ in the log file. 
+There exists a utility to log to CSV format instead using the `log()` method.  Simply set the CSV parameter to true to change the output file extention.  Each line will be appended with a comma delimiter so that the code below creates the line _Left,its,seeds,while,I,was,sleeping,_ in the log file. 
 
-    Logger logger = new Logger();
-    logger.setToCSV();
-    logger.log("Left,its,seeds,while,I,was,sleeping");
+    Logger logger = new Logger();                                   // Create a new logger
+    logger.setToCSV();                                              // Set the CSV to true
+    logger.log("Left,its,seeds,while,I,was,sleeping");              // Log a user formatted comma seperated string to a .csv file
+    logger.setToTxt();                                              // Set the CSV to false (logging will now go to a .txt file of the same name)
     
  Or by passing an array of Strings or integers to the `log()` method which will format the strings with delimiters automatically:
  
