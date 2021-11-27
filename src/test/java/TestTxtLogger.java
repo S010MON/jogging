@@ -75,6 +75,40 @@ public class TestTxtLogger
         assertEquals(exp, act);
     }
 
+    @Test void testSpecifiedNameLogToTxtMulti()
+    {
+        String[] exp = {"Hello, darkness, my old friend",
+                "I've come to talk with you again",
+                "Because a vision softly creeping",
+                "Left its seeds while I was sleeping",
+                "And the vision that was planted in my brain",
+                "Still remains",
+                "Within the sound of silence",};
+        String[] act = new String[7];
+
+        Logger logger = new Logger("log");
+        for (String s : exp)
+        {
+            logger.log(s);
+        }
+        try {
+            File defaultFile = getFile("log.txt");
+            BufferedReader reader = new BufferedReader(new FileReader(defaultFile));
+            for(int i = 0; i < exp.length; i++)
+            {
+                act[i] = reader.readLine();
+            }
+        } catch (IOException e) {
+            System.out.println("Unable to read default log.txt file");
+            e.printStackTrace();
+        }
+
+        for(int i = 0; i < exp.length; i++)
+        {
+            assertEquals(exp[i], act[i]);
+        }
+    }
+
     private File getFile(String name)
     {
         FileSystem fileSystem = FileSystems.getDefault();
