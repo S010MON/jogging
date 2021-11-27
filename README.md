@@ -1,3 +1,7 @@
+![workflow](https://github.com/S010MON/simple-logging-framework/actions/workflows/linux.yml/badge.svg)
+
+--------------------------------------------------------------------------------------
+
 # SLF4J - Simple Logging Framework for Java
 
 A simple framework for logging to file in java without too much setup.  To use the framework, import the files directly into your project.
