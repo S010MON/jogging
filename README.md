@@ -12,21 +12,21 @@ There are three types of .txt logging
 - Specified name
 - Specified location and name
 
-##### Default
+#### Default
 To create a default logger, build a new instance of the Logger class.
 This will create a default `logs` folder in your project root and save as `/logs/log.txt`
 
     Logger logger = new Logger();
     logger.log("Hello, darkness, my old friend");
 
-##### Specified name
+#### Specified name
 If you want to specify a name to save your logs as, pass the `fileName` parameter at the creation of the logger.  
 Note that there is no need to pass a file extention to the name. 
 
     Logger logger = new Logger("myLogName");
     logger.log("I've come to talk with you again");
     
-##### Specified name and location
+#### Specified name and location
 If you want to specify a location to save your logs, pass the `internalFilePath` parameter at the creation of the logger.  
 Note that the `internalFilePath` *must* start and end with `/` or you will recieve an error.
 
