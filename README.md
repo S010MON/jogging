@@ -8,6 +8,13 @@
 
 A simple framework for logging to file in java without too much setup. Intended for students and small projects where you want to get text logging up and running without worrying about imports, setup files, or trawling through documentation.  To use the framework, import all the source files directly into your project, everything runs on inbuilt libraries and logging can be done with two lines of code.  All information required to use the framework is described within this file.
 
+![Txt Logging]()
+![Csv Logging]()
+![String Arrays]()
+![Integer Arrays]()
+![Double Arrays]()
+
+
 ### Text Logging
 There are three types of .txt logging:
 
@@ -40,13 +47,19 @@ There exists a utility to log to CSV format before using the `log()` method.  Si
     logger.log("Left,its,seeds,while,I,was,sleeping");              // Log a user formatted comma seperated string to a .csv file
     logger.setToTxt();                                              // Set the CSV to false (logging will now go to a .txt file of the same name)
     
- Or by passing an array of Strings or integers to the `log()` method which will format the strings with delimiters automatically:
- 
+
+#### String Arrays
+By passing an array of Strings or integers to the `log()` method which will format the strings with delimiters automatically
+
     String[] myStringArray = {"And","the","vision","that","was","planted","in","my","brain"};
     logger.log(myStringArray);
-    
+
+#### Integer Arrays
+
     int[] myIntegerArray = {1,2,3,4,5,6,7,8,9};
     logger.log(myIntegerArray);
+
+#### Double Arrays
 
     double[] myDoubleArray = {1.1,2.2,3.3,4.4,5.5};
     logger.log(myDoubleArray);
