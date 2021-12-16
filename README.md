@@ -9,11 +9,11 @@
 A simple framework for logging to file in java without too much setup. Intended for students and small projects where you want to get text logging up and running without worrying about imports, setup files, or trawling through documentation.  To use the framework, import all the source files directly into your project, everything runs on inbuilt libraries and logging can be done with two lines of code.  All information required to use the framework is described within this file.
 
 ### Contents
-![Txt Logging](https://github.com/S010MON/jogging#text-logging)
-![Csv Logging](https://github.com/S010MON/jogging#csv-logging)
-![String Arrays](https://github.com/S010MON/jogging#string-arrays)
-![Integer Arrays](https://github.com/S010MON/jogging#integer-arrays)
-![Double Arrays](https://github.com/S010MON/jogging#double-arrays)
+- ![Txt Logging](https://github.com/S010MON/jogging#text-logging)
+- ![Csv Logging](https://github.com/S010MON/jogging#csv-logging)
+- ![String Arrays](https://github.com/S010MON/jogging#string-arrays)
+- ![Integer Arrays](https://github.com/S010MON/jogging#integer-arrays)
+- ![Double Arrays](https://github.com/S010MON/jogging#double-arrays)
 
 ### Text Logging
 There are three types of .txt logging:
