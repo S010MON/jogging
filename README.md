@@ -17,7 +17,7 @@ A simple framework for logging to file in java without too much setup. Intended 
     - ![String Arrays](https://github.com/S010MON/jogging#string-arrays)
     - ![Integer Arrays](https://github.com/S010MON/jogging#integer-arrays)
     - ![Double Arrays](https://github.com/S010MON/jogging#double-arrays)
-- ![Disclaimer]()
+- ![Licence](https://github.com/S010MON/jogging#license)
 
 ### Text Logging
 There are three types of .txt logging:
@@ -68,7 +68,12 @@ By passing an array of Strings or integers to the `log()` method which will form
     double[] myDoubleArray = {1.1,2.2,3.3,4.4,5.5};
     logger.log(myDoubleArray);
     
-    
+</br>
+
+----
+
+</br>
+
 ### License
 Copyright (c) 2021 Leon Debnath
 
