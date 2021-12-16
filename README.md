@@ -33,7 +33,7 @@ Note that the `internalFilePath` **must** start and end with `/` or you will rec
     logger.log("Because a vision softly creeping");
 
 ### CSV Logging
-There exists a utility to log to CSV format instead using the `log()` method.  Simply set the CSV parameter to true to change the output file extention.  Each line will be appended with a comma delimiter so that the code below creates the line _Left,its,seeds,while,I,was,sleeping,_ in the log file. 
+There exists a utility to log to CSV format before using the `log()` method.  Simply set the CSV parameter to true to change the output file extention.  Each line will be appended with a comma delimiter so that the code below creates the line _Left,its,seeds,while,I,was,sleeping,_ in the log file. 
 
     Logger logger = new Logger();                                   // Create a new logger
     logger.setToCSV();                                              // Set the CSV to true
