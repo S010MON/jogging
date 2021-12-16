@@ -86,7 +86,7 @@ logger.log(myDoubleArray);
 
 </br>
 
-### License
+## License
 Copyright (c) 2021 Leon Debnath
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
