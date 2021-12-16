@@ -10,10 +10,13 @@ A simple framework for logging to file in java without too much setup. Intended 
 
 ### Contents
 - ![Txt Logging](https://github.com/S010MON/jogging#text-logging)
+    - ![Default](https://github.com/S010MON/jogging#default)
+    - ![Specified File Name](https://github.com/S010MON/jogging#specified-name)
+    - ![Specified File Location](https://github.com/S010MON/jogging#specified-name-and-location)
 - ![Csv Logging](https://github.com/S010MON/jogging#csv-logging)
-- ![String Arrays](https://github.com/S010MON/jogging#string-arrays)
-- ![Integer Arrays](https://github.com/S010MON/jogging#integer-arrays)
-- ![Double Arrays](https://github.com/S010MON/jogging#double-arrays)
+    - ![String Arrays](https://github.com/S010MON/jogging#string-arrays)
+    - ![Integer Arrays](https://github.com/S010MON/jogging#integer-arrays)
+    - ![Double Arrays](https://github.com/S010MON/jogging#double-arrays)
 
 ### Text Logging
 There are three types of .txt logging:
@@ -25,7 +28,7 @@ This will create a default `logs` folder in your project root and save as `/logs
     Logger logger = new Logger();
     logger.log("Hello, darkness, my old friend");
 
-#### Specified name
+#### Specified File name
 If you want to specify a name to save your logs as, pass the `fileName` parameter at the creation of the logger.  
 Note that there is no need to pass a file extention to the name. 
 
