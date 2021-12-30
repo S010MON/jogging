@@ -116,6 +116,26 @@ public class TestCsvLogger
         assertEquals(exp, act);
     }
 
+    @Test void testChangeCsvfileEnding()
+    {
+        String exp = "I've,come,to,talk,with,you,again,";
+        String act = "";
+
+        Logger logger = new Logger();
+        logger.setFileName("log.csv");
+        logger.setToCSV();
+        logger.log(exp);
+        try {
+            File defaultFile = getFile("log.csv");
+            BufferedReader reader = new BufferedReader(new FileReader(defaultFile));
+            act = reader.readLine();
+        } catch (IOException e) {
+            System.out.println("Unable to read default log.txt file");
+            e.printStackTrace();
+        }
+        assertEquals(exp, act);
+    }
+
     @Test void testSpecifiedNameLogStringArray()
     {
         String[] input = {"I've","come","to","talk","with","you","again"};

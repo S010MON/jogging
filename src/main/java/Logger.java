@@ -27,7 +27,7 @@ public class Logger
     public Logger(String fileName)
     {
         this.directoryPath = FilePath.getInternal("/logs/");
-        this.fileName = fileName;
+        this.fileName = stripFileType(fileName);
         createDirectory();
     }
 
@@ -40,7 +40,7 @@ public class Logger
     {
         internalFilePath = validatePath(internalFilePath);
         this.directoryPath = FilePath.getInternal(internalFilePath);
-        this.fileName = fileName;
+        this.fileName = stripFileType(fileName);
         createDirectory();
     }
 
@@ -155,7 +155,7 @@ public class Logger
 
     public void setFileName(String fileName)
     {
-        this.fileName = fileName;
+        this.fileName = stripFileType(fileName);
     }
 
     public void setDelimeter(String delim)
@@ -202,6 +202,13 @@ public class Logger
         if(!path.endsWith("/"))
             path = path + "/";
         return path;
+    }
+
+    public String stripFileType(String fileName)
+    {
+        if(fileName.endsWith(".txt") || fileName.endsWith(".csv"))
+            fileName = fileName.substring(0, fileName.length()-4);
+        return fileName;
     }
 
     private String getDelimiter()

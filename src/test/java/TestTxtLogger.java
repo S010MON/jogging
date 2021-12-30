@@ -145,7 +145,26 @@ public class TestTxtLogger
             BufferedReader reader = new BufferedReader(new FileReader(defaultFile));
             act = reader.readLine();
         } catch (IOException e) {
-            System.out.println("Unable to read default log.txt file");
+            System.out.println("Unable to read log.txt file");
+            e.printStackTrace();
+        }
+        assertEquals(exp, act);
+    }
+
+    @Test void testChangeTxtFileEnding()
+    {
+        String exp = "I've come to talk with you again";
+        String act = "";
+
+        Logger logger = new Logger();
+        logger.setFileName("log.txt");
+        logger.log(exp);
+        try {
+            File defaultFile = getFile(testPaths[0], "log.txt");
+            BufferedReader reader = new BufferedReader(new FileReader(defaultFile));
+            act = reader.readLine();
+        } catch (IOException e) {
+            System.out.println("Unable to read log.txt file");
             e.printStackTrace();
         }
         assertEquals(exp, act);
