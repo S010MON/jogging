@@ -42,7 +42,6 @@ logger.log("I've come to talk with you again");
 
 ### Specified name and location
 If you want to specify a location to save your logs, pass the `internalFilePath` parameter at the creation of the logger.  
-Note that the `internalFilePath` **must** start and end with `/` or you will recieve an error.
 
 ```java
 Logger logger = new Logger("/my/log/location/here/", "myLogName");
