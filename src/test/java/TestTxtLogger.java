@@ -133,7 +133,7 @@ public class TestTxtLogger
         }
     }
 
-    @Test void testTXTfileEnding()
+    @Test void testTxtFileEnding()
     {
         String exp = "I've come to talk with you again";
         String act = "";
