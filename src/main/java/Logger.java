@@ -8,6 +8,7 @@ public class Logger
     private String fileName;
     private boolean CSV = false;
     private boolean append = true;
+    private String delimeter = ",";
 
     /**
      * Default constructor path set to projectRoot/log/
@@ -157,6 +158,11 @@ public class Logger
         this.fileName = fileName;
     }
 
+    public void setDelimeter(String delim)
+    {
+        delimeter = delim;
+    }
+
     private FileWriter getFileWriter()
     {
         String filePath = directoryPath + fileName;
@@ -201,7 +207,7 @@ public class Logger
     private String getDelimiter()
     {
         if(CSV)
-            return ",";
+            return delimeter;
         return "";
     }
 }
