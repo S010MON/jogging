@@ -179,7 +179,7 @@ public class TestCsvLogger extends TestLogger
 
         Logger logger = new Logger("log");
         logger.setToCSV();
-        logger.setDelimeter("!");
+        logger.setDelimiter("!");
         logger.log(input);
         try {
             File defaultFile = getFile(testPaths[0], "log.csv");
