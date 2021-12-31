@@ -1,48 +1,14 @@
-
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.FileSystem;
-import java.nio.file.FileSystems;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestTxtLogger
+public class TestTxtLogger extends TestLogger
 {
-    public static String[] testPaths = {"/logs/", "/logsA/", "logsB/", "/logsC", "logsD"};
-    public static String[] validationPaths = {"/logs/", "/logsA/", "/logsB/", "/logsC/", "/logsD/"};
-
-    @BeforeEach void setUp()
-    {
-        for(String path: testPaths)
-        {
-            File testDir = getFile(path, "");
-            if (!testDir.exists() || !testDir.isDirectory())
-                testDir.mkdir();
-        }
-    }
-
-    @AfterEach void tearDown()
-    {
-        for(String path: testPaths)
-        {
-            File testDir = getFile(path, "");
-            if (testDir.exists()) {
-                String[] files = testDir.list();
-                for (String s : files) {
-                    File currentFile = new File(testDir.getPath(), s);
-                    currentFile.delete();
-                }
-                testDir.delete();
-            }
-        }
-    }
-
     @Test void testDefaultLogToTxt()
     {
         String exp = "Hello, darkness, my old friend";
@@ -170,11 +136,4 @@ public class TestTxtLogger
         assertEquals(exp, act);
     }
 
-    private File getFile(String testPath, String name)
-    {
-        FileSystem fileSystem = FileSystems.getDefault();
-        String path = fileSystem.getPath("").toAbsolutePath().toString();
-        path = path.concat(testPath + name);
-        return new File(path);
-    }
 }

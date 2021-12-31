@@ -1,14 +1,17 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Logger
 {
     private String directoryPath;
     private String fileName;
+    private String delimiter = ",";
     private boolean CSV = false;
     private boolean append = true;
-    private String delimeter = ",";
+    private boolean prependDateTime = false;
 
     /**
      * Default constructor path set to projectRoot/log/
@@ -62,6 +65,9 @@ public class Logger
      */
     public void log(String str)
     {
+        if(prependDateTime)
+            str = prependNow(str);
+
         try {
             FileWriter writer = getFileWriter();
             assert writer != null;
@@ -84,6 +90,9 @@ public class Logger
         try {
             FileWriter writer = getFileWriter();
             assert writer != null;
+
+            if(prependDateTime)
+                writer.write(prependNow(""));
             for (String s : str)
             {
                 writer.write(s + delim);
@@ -105,6 +114,8 @@ public class Logger
         String delim = getDelimiter();
         try {
             FileWriter writer = getFileWriter();
+            if(prependDateTime)
+                writer.write(now() + delim);
             for (int i : I)
             {
                 writer.write(i + delim);
@@ -126,6 +137,8 @@ public class Logger
         String delim = getDelimiter();
         try {
             FileWriter writer = getFileWriter();
+            if(prependDateTime)
+                writer.write(now() + delim);
             for (double d : D)
             {
                 writer.write(d + delim);
@@ -147,6 +160,11 @@ public class Logger
         CSV = false;
     }
 
+    public void setPrependDateTime(boolean bool)
+    {
+        prependDateTime = bool;
+    }
+
     public void setDirectoryPath(String directoryPath)
     {
         directoryPath = validatePath(directoryPath);
@@ -158,9 +176,9 @@ public class Logger
         this.fileName = stripFileType(fileName);
     }
 
-    public void setDelimeter(String delim)
+    public void setDelimiter(String delim)
     {
-        delimeter = delim;
+        delimiter = delim;
     }
 
     private FileWriter getFileWriter()
@@ -204,17 +222,28 @@ public class Logger
         return path;
     }
 
-    public String stripFileType(String fileName)
+    private String stripFileType(String fileName)
     {
         if(fileName.endsWith(".txt") || fileName.endsWith(".csv"))
             fileName = fileName.substring(0, fileName.length()-4);
         return fileName;
     }
 
+    private String now()
+    {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return LocalDateTime.now().format(formatter);
+    }
+
+    private String prependNow(String str)
+    {
+        return "[" + now() + "]" + str;
+    }
+
     private String getDelimiter()
     {
         if(CSV)
-            return delimeter;
+            return delimiter;
         return "";
     }
 }
