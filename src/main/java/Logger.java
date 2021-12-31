@@ -1,14 +1,16 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 public class Logger
 {
     private String directoryPath;
     private String fileName;
+    private String delimeter = ",";
     private boolean CSV = false;
     private boolean append = true;
-    private String delimeter = ",";
+    private boolean prependDateTime = false;
 
     /**
      * Default constructor path set to projectRoot/log/
@@ -62,6 +64,8 @@ public class Logger
      */
     public void log(String str)
     {
+        if(prependDateTime)
+            str ="[" + LocalDateTime.now().toString() + "]" + str;
         try {
             FileWriter writer = getFileWriter();
             assert writer != null;
@@ -84,6 +88,9 @@ public class Logger
         try {
             FileWriter writer = getFileWriter();
             assert writer != null;
+
+            if(prependDateTime)
+                writer.write("[" + LocalDateTime.now().toString() + "]" + delim);
             for (String s : str)
             {
                 writer.write(s + delim);
@@ -105,6 +112,8 @@ public class Logger
         String delim = getDelimiter();
         try {
             FileWriter writer = getFileWriter();
+            if(prependDateTime)
+                writer.write("[" + LocalDateTime.now().toString() + "]" + delim);
             for (int i : I)
             {
                 writer.write(i + delim);
@@ -126,6 +135,8 @@ public class Logger
         String delim = getDelimiter();
         try {
             FileWriter writer = getFileWriter();
+            if(prependDateTime)
+                writer.write("[" + LocalDateTime.now().toString() + "]" + delim);
             for (double d : D)
             {
                 writer.write(d + delim);
@@ -145,6 +156,11 @@ public class Logger
     public void setToTxt()
     {
         CSV = false;
+    }
+
+    public void setPrependDateTime(boolean bool)
+    {
+        prependDateTime = bool;
     }
 
     public void setDirectoryPath(String directoryPath)
