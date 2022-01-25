@@ -15,7 +15,7 @@ public class TestCsvLogger extends TestLogger
         String act = "";
 
         Logger logger = new Logger();
-        logger.setToCSV();
+        logger.setOutputCsv();
         logger.log(exp);
         try {
             File defaultFile = getFile(testPaths[0], "log.csv");
@@ -36,7 +36,7 @@ public class TestCsvLogger extends TestLogger
         String act = "";
 
         Logger logger = new Logger();
-        logger.setToCSV();
+        logger.setOutputCsv();
         logger.log(input);
         try {
             File defaultFile = getFile(testPaths[0], "log.csv");
@@ -56,7 +56,7 @@ public class TestCsvLogger extends TestLogger
         String act = "";
 
         Logger logger = new Logger("log");
-        logger.setToCSV();
+        logger.setOutputCsv();
         logger.log(exp);
         try {
             File defaultFile = getFile(testPaths[0], "log.csv");
@@ -75,7 +75,7 @@ public class TestCsvLogger extends TestLogger
         String act = "";
 
         Logger logger = new Logger("log.csv");
-        logger.setToCSV();
+        logger.setOutputCsv();
         logger.log(exp);
         try {
             File defaultFile = getFile(testPaths[0],"log.csv");
@@ -95,7 +95,7 @@ public class TestCsvLogger extends TestLogger
 
         Logger logger = new Logger();
         logger.setFileName("log.csv");
-        logger.setToCSV();
+        logger.setOutputCsv();
         logger.log(exp);
         try {
             File defaultFile = getFile(testPaths[0],"log.csv");
@@ -115,7 +115,7 @@ public class TestCsvLogger extends TestLogger
         String act = "";
 
         Logger logger = new Logger("log");
-        logger.setToCSV();
+        logger.setOutputCsv();
         logger.log(exp);
         try {
             File defaultFile = getFile(testPaths[0],"log.csv");
@@ -136,7 +136,7 @@ public class TestCsvLogger extends TestLogger
         String act = "";
 
         Logger logger = new Logger("log");
-        logger.setToCSV();
+        logger.setOutputCsv();
         logger.log(input);
         try {
             File defaultFile = getFile(testPaths[0],"log.csv");
@@ -157,7 +157,7 @@ public class TestCsvLogger extends TestLogger
         String act = "";
 
         Logger logger = new Logger("log");
-        logger.setToCSV();
+        logger.setOutputCsv();
         logger.log(input);
         try {
             File defaultFile = getFile(testPaths[0],"log.csv");
@@ -178,7 +178,7 @@ public class TestCsvLogger extends TestLogger
         String act = "";
 
         Logger logger = new Logger("log");
-        logger.setToCSV();
+        logger.setOutputCsv();
         logger.setDelimiter("!");
         logger.log(input);
         try {

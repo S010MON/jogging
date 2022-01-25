@@ -150,12 +150,12 @@ public class Logger
         }
     }
 
-    public void setToCSV()
+    public void setOutputCsv()
     {
         CSV = true;
     }
 
-    public void setToTxt()
+    public void setOutputTxt()
     {
         CSV = false;
     }
