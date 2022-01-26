@@ -66,14 +66,19 @@ public class Logger
     public void log(String str)
     {
         if(prependDateTime)
+        {
             str = prependNow(str);
-
-        try {
+        }
+        try
+        {
             FileWriter writer = getFileWriter();
             assert writer != null;
             writer.write(str + "\n");
             writer.close();
-        } catch (IOException e) {
+            System.out.println(str);
+        }
+        catch (IOException e)
+        {
             printExceptionMessage();
             e.printStackTrace();
         }
@@ -87,18 +92,27 @@ public class Logger
     public void log(String[] str)
     {
         String delim = getDelimiter();
-        try {
+        try
+        {
             FileWriter writer = getFileWriter();
             assert writer != null;
+            StringBuilder sb = new StringBuilder();
 
             if(prependDateTime)
+            {
                 writer.write(prependNow(""));
+                sb.append(prependNow(""));
+            }
             for (String s : str)
             {
                 writer.write(s + delim);
+                sb.append(s).append(delim);
             }
             writer.close();
-        } catch (IOException e) {
+            System.out.println(sb);
+        }
+        catch (IOException e)
+        {
             printExceptionMessage();
             e.printStackTrace();
         }
@@ -112,16 +126,28 @@ public class Logger
     public void log(int[] I)
     {
         String delim = getDelimiter();
-        try {
+        try
+        {
             FileWriter writer = getFileWriter();
+            assert writer != null;
+            StringBuilder sb = new StringBuilder();
+
             if(prependDateTime)
-                writer.write(now() + delim);
+            {
+                String time = now() + delim;
+                writer.write(time);
+                sb.append(time);
+            }
             for (int i : I)
             {
                 writer.write(i + delim);
+                sb.append(i).append(delim);
             }
             writer.close();
-        } catch (IOException e) {
+            System.out.println(sb);
+        }
+        catch (IOException e)
+        {
             printExceptionMessage();
             e.printStackTrace();
         }
@@ -135,27 +161,38 @@ public class Logger
     public void log(double[] D)
     {
         String delim = getDelimiter();
-        try {
+        try
+        {
             FileWriter writer = getFileWriter();
+            assert writer != null;
+            StringBuilder sb = new StringBuilder();
+
             if(prependDateTime)
-                writer.write(now() + delim);
+            {
+                writer.write(prependNow(delim));
+                sb.append(prependNow(delim));
+            }
             for (double d : D)
             {
                 writer.write(d + delim);
+                sb.append(d).append(delim);
             }
             writer.close();
-        } catch (IOException e) {
+            System.out.println(sb);
+        }
+        catch (IOException e)
+        {
             printExceptionMessage();
             e.printStackTrace();
         }
     }
 
-    public void setToCSV()
+    public void setOutputCsv()
     {
         CSV = true;
     }
 
-    public void setToTxt()
+    public void setOutputTxt()
     {
         CSV = false;
     }
@@ -174,11 +211,6 @@ public class Logger
     public void setFileName(String fileName)
     {
         this.fileName = stripFileType(fileName);
-    }
-
-    public void setDelimiter(String delim)
-    {
-        delimiter = delim;
     }
 
     private FileWriter getFileWriter()
@@ -229,15 +261,15 @@ public class Logger
         return fileName;
     }
 
+    private String prependNow(String str)
+    {
+        return "[" + now() + "]" + str;
+    }
+
     private String now()
     {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         return LocalDateTime.now().format(formatter);
-    }
-
-    private String prependNow(String str)
-    {
-        return "[" + now() + "]" + str;
     }
 
     private String getDelimiter()
@@ -245,5 +277,10 @@ public class Logger
         if(CSV)
             return delimiter;
         return "";
+    }
+
+    public void setDelimiter(String delim)
+    {
+        delimiter = delim;
     }
 }
