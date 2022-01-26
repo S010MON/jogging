@@ -20,6 +20,7 @@ public class TestTxtLogger extends TestLogger
             File defaultFile = getFile(testPaths[0], "log.txt");
             BufferedReader reader = new BufferedReader(new FileReader(defaultFile));
             act = reader.readLine();
+            reader.close();
         } catch (IOException e) {
             System.out.println("Unable to read default log.txt file");
             e.printStackTrace();
@@ -39,6 +40,7 @@ public class TestTxtLogger extends TestLogger
             File defaultFile = getFile(testPaths[0], "log.txt");
             BufferedReader reader = new BufferedReader(new FileReader(defaultFile));
             act = reader.readLine();
+            reader.close();
         } catch (IOException e) {
             System.out.println("Unable to read default log.txt file");
             e.printStackTrace();
@@ -67,6 +69,7 @@ public class TestTxtLogger extends TestLogger
             for (int i = 0; i < exp.length; i++) {
                 act[i] = reader.readLine();
             }
+            reader.close();
         } catch (IOException e) {
             System.out.println("Unable to read default log.txt file");
             e.printStackTrace();
@@ -90,6 +93,7 @@ public class TestTxtLogger extends TestLogger
                 File defaultFile = getFile(validationPaths[i], "log.txt");
                 BufferedReader reader = new BufferedReader(new FileReader(defaultFile));
                 act = reader.readLine();
+                reader.close();
             } catch (IOException e) {
                 System.out.println("Unable to read default log.txt file");
                 e.printStackTrace();
@@ -110,6 +114,7 @@ public class TestTxtLogger extends TestLogger
             File defaultFile = getFile(testPaths[0], "log.txt");
             BufferedReader reader = new BufferedReader(new FileReader(defaultFile));
             act = reader.readLine();
+            reader.close();
         } catch (IOException e) {
             System.out.println("Unable to read log.txt file");
             e.printStackTrace();
@@ -129,6 +134,7 @@ public class TestTxtLogger extends TestLogger
             File defaultFile = getFile(testPaths[0], "log.txt");
             BufferedReader reader = new BufferedReader(new FileReader(defaultFile));
             act = reader.readLine();
+            reader.close();
         } catch (IOException e) {
             System.out.println("Unable to read log.txt file");
             e.printStackTrace();

@@ -21,6 +21,7 @@ public class TestCsvLogger extends TestLogger
             File defaultFile = getFile(testPaths[0], "log.csv");
             BufferedReader reader = new BufferedReader(new FileReader(defaultFile));
             act = reader.readLine();
+            reader.close();
         } catch (IOException e) {
             System.out.println("Unable to read default log.txt file");
             e.printStackTrace();
@@ -42,6 +43,7 @@ public class TestCsvLogger extends TestLogger
             File defaultFile = getFile(testPaths[0], "log.csv");
             BufferedReader reader = new BufferedReader(new FileReader(defaultFile));
             act = reader.readLine();
+            reader.close();
         } catch (IOException e) {
             System.out.println("Unable to read default log.csv file");
             e.printStackTrace();
@@ -62,6 +64,7 @@ public class TestCsvLogger extends TestLogger
             File defaultFile = getFile(testPaths[0], "log.csv");
             BufferedReader reader = new BufferedReader(new FileReader(defaultFile));
             act = reader.readLine();
+            reader.close();
         } catch (IOException e) {
             System.out.println("Unable to read default log.txt file");
             e.printStackTrace();
@@ -81,6 +84,7 @@ public class TestCsvLogger extends TestLogger
             File defaultFile = getFile(testPaths[0],"log.csv");
             BufferedReader reader = new BufferedReader(new FileReader(defaultFile));
             act = reader.readLine();
+            reader.close();
         } catch (IOException e) {
             System.out.println("Unable to read default log.txt file");
             e.printStackTrace();
@@ -101,6 +105,7 @@ public class TestCsvLogger extends TestLogger
             File defaultFile = getFile(testPaths[0],"log.csv");
             BufferedReader reader = new BufferedReader(new FileReader(defaultFile));
             act = reader.readLine();
+            reader.close();
         } catch (IOException e) {
             System.out.println("Unable to read default log.txt file");
             e.printStackTrace();
@@ -121,6 +126,7 @@ public class TestCsvLogger extends TestLogger
             File defaultFile = getFile(testPaths[0],"log.csv");
             BufferedReader reader = new BufferedReader(new FileReader(defaultFile));
             act = reader.readLine();
+            reader.close();
         } catch (IOException e) {
             System.out.println("Unable to read default log.csv file");
             e.printStackTrace();
@@ -142,6 +148,7 @@ public class TestCsvLogger extends TestLogger
             File defaultFile = getFile(testPaths[0],"log.csv");
             BufferedReader reader = new BufferedReader(new FileReader(defaultFile));
             act = reader.readLine();
+            reader.close();
         } catch (IOException e) {
             System.out.println("Unable to read default log.csv file");
             e.printStackTrace();
@@ -163,6 +170,7 @@ public class TestCsvLogger extends TestLogger
             File defaultFile = getFile(testPaths[0],"log.csv");
             BufferedReader reader = new BufferedReader(new FileReader(defaultFile));
             act = reader.readLine();
+            reader.close();
         } catch (IOException e) {
             System.out.println("Unable to read default log.csv file");
             e.printStackTrace();
@@ -185,6 +193,7 @@ public class TestCsvLogger extends TestLogger
             File defaultFile = getFile(testPaths[0], "log.csv");
             BufferedReader reader = new BufferedReader(new FileReader(defaultFile));
             act = reader.readLine();
+            reader.close();
         } catch (IOException e) {
             System.out.println("Unable to read default log.csv file");
             e.printStackTrace();
