@@ -23,11 +23,11 @@ A simple framework for logging to file in java without too much setup. Intended 
 There are three types of .txt logging:
 
 ### Default
-To create a default logger, build a new instance of the Logger class.
+To create a default logger, build a new instance of the jogging.Logger class.
 This will create a default `logs` folder in your project root and save as `/logs/log.txt`
     
 ```java
-Logger logger = new Logger();
+jogging.Logger logger = new jogging.Logger();
 logger.log("Hello, darkness, my old friend");
 ```
 
@@ -36,7 +36,7 @@ If you want to specify a name to save your logs as, pass the `fileName` paramete
 Note that there is no need to pass a file extention to the name. 
 
 ```java
-Logger logger = new Logger("myLogName");
+jogging.Logger logger = new jogging.Logger("myLogName");
 logger.log("I've come to talk with you again");
 ``` 
 
@@ -44,7 +44,7 @@ logger.log("I've come to talk with you again");
 If you want to specify a location to save your logs, pass the `internalFilePath` parameter at the creation of the logger.  
 
 ```java
-Logger logger = new Logger("/my/log/location/here/", "myLogName");
+jogging.Logger logger = new jogging.Logger("/my/log/location/here/", "myLogName");
 logger.log("Because a vision softly creeping");
 ```
 
@@ -52,7 +52,7 @@ logger.log("Because a vision softly creeping");
 There exists a utility to log to CSV format before using the `log()` method.  Simply set the CSV parameter to true to change the output file extention.  Each line will be appended with a comma delimiter so that the code below creates the line _Left,its,seeds,while,I,was,sleeping,_ in the log file. 
 
 ```java
-Logger logger = new Logger();                                   // Create a new logger
+jogging.Logger logger = new jogging.Logger();                                   // Create a new logger
 logger.setToCSV();                                              // Set the CSV to true
 logger.log("Left,its,seeds,while,I,was,sleeping");              // Log a user formatted comma seperated string to a .csv file
 logger.setToTxt();                                              // Set the CSV to false (logging will now go to a .txt file of the same name)
