@@ -49,7 +49,7 @@ public class Logger
 
     public void createDirectory()
     {
-        File file = new File(directoryPath + fileName);
+        File file = new File(directoryPath);
         if(!file.exists() || !file.isDirectory())
         {
             boolean success = file.mkdirs();
