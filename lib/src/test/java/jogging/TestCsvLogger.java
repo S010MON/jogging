@@ -1,6 +1,6 @@
-import jogging.Logger;
-import org.junit.jupiter.api.Test;
+package jogging;
 
+import org.junit.jupiter.api.Test;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;

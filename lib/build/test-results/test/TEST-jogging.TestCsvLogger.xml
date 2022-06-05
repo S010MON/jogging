@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="jogging.TestCsvLogger" tests="9" skipped="0" failures="0" errors="0" timestamp="2022-06-05T14:23:42" hostname="pop-os" time="0.029">
+  <properties/>
+  <testcase name="testChangeCsvfileEnding()" classname="jogging.TestCsvLogger" time="0.012"/>
+  <testcase name="testDefaultLogString()" classname="jogging.TestCsvLogger" time="0.001"/>
+  <testcase name="testSpecifiedNameLogStringArray()" classname="jogging.TestCsvLogger" time="0.001"/>
+  <testcase name="testDelimeterChange()" classname="jogging.TestCsvLogger" time="0.006"/>
+  <testcase name="testDefaultLogDoubleArray()" classname="jogging.TestCsvLogger" time="0.003"/>
+  <testcase name="testCsvfileEnding()" classname="jogging.TestCsvLogger" time="0.0"/>
+  <testcase name="testDefaultLogStringArray()" classname="jogging.TestCsvLogger" time="0.001"/>
+  <testcase name="testSpecifiedNameLogString()" classname="jogging.TestCsvLogger" time="0.001"/>
+  <testcase name="testDefaultLogIntArray()" classname="jogging.TestCsvLogger" time="0.001"/>
+  <system-out><![CDATA[I've,come,to,talk,with,you,again,
+Hello,darkness,my,old,friend,
+I've,come,to,talk,with,you,again,
+1!2!3!4!5!6!7!8!9!10!
+1.1,2.2,3.3,4.4,5.5,6.6,7.7,8.8,9.9,10.01,
+I've,come,to,talk,with,you,again,
+Hello,darkness,my,old,friend,
+I've,come,to,talk,with,you,again,
+1,2,3,4,5,6,7,8,9,10,
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

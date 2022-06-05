@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="jogging.TestTxtLogger" tests="6" skipped="0" failures="0" errors="0" timestamp="2022-06-05T14:23:42" hostname="pop-os" time="0.007">
+  <properties/>
+  <testcase name="testSpecifiedPathLogToTxt()" classname="jogging.TestTxtLogger" time="0.002"/>
+  <testcase name="testChangeTxtFileEnding()" classname="jogging.TestTxtLogger" time="0.001"/>
+  <testcase name="testDefaultLogToTxt()" classname="jogging.TestTxtLogger" time="0.001"/>
+  <testcase name="testSpecifiedNameLogToTxtMulti()" classname="jogging.TestTxtLogger" time="0.001"/>
+  <testcase name="testSpecifiedNameLogToTxt()" classname="jogging.TestTxtLogger" time="0.001"/>
+  <testcase name="testTxtFileEnding()" classname="jogging.TestTxtLogger" time="0.0"/>
+  <system-out><![CDATA[Hello, darkness, my old friend
+Hello, darkness, my old friend
+Hello, darkness, my old friend
+Hello, darkness, my old friend
+Hello, darkness, my old friend
+I've come to talk with you again
+Hello, darkness, my old friend
+Hello, darkness, my old friend
+I've come to talk with you again
+Because a vision softly creeping
+Left its seeds while I was sleeping
+And the vision that was planted in my brain
+Still remains
+Within the sound of silence
+I've come to talk with you again
+I've come to talk with you again
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
