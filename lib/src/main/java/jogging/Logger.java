@@ -146,8 +146,8 @@ public class Logger
                 writer.write(i + delim);
                 sb.append(i).append(delim);
             }
-            writer.close();
             writer.write("\n");
+            writer.close();
             System.out.println(sb);
         }
         catch (IOException e)

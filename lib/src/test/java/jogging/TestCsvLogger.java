@@ -202,4 +202,27 @@ public class TestCsvLogger extends TestLogger
 
         assertEquals(exp, act);
     }
+
+    @Test void testNewLineAfterArray()
+    {
+        int[] input = {1,2,3,4,5,6,7,8,9,10};
+        String exp = "1,2,3,4,5,6,7,8,9,10,\n1,2,3,4,5,6,7,8,9,10,";
+        String act = "";
+
+        Logger logger = new Logger("log");
+        logger.setOutputCsv();
+        logger.log(input);
+        logger.log(input);
+        try {
+            File defaultFile = getFile(testPaths[0], "log.csv");
+            BufferedReader reader = new BufferedReader(new FileReader(defaultFile));
+            act = reader.readLine() + "\n" + reader.readLine();
+            reader.close();
+        } catch (IOException e) {
+            System.out.println("Unable to read default log.csv file");
+            e.printStackTrace();
+        }
+
+        assertEquals(exp, act);
+    }
 }
