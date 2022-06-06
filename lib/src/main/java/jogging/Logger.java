@@ -110,6 +110,7 @@ public class Logger
                 writer.write(s + delim);
                 sb.append(s).append(delim);
             }
+            writer.write("/n");
             writer.close();
             System.out.println(sb);
         }
@@ -146,6 +147,7 @@ public class Logger
                 sb.append(i).append(delim);
             }
             writer.close();
+            writer.write("/n");
             System.out.println(sb);
         }
         catch (IOException e)
@@ -179,6 +181,42 @@ public class Logger
                 writer.write(d + delim);
                 sb.append(d).append(delim);
             }
+            writer.write("/n");
+            writer.close();
+            System.out.println(sb);
+        }
+        catch (IOException e)
+        {
+            printExceptionMessage();
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Append a double array to a new line of a {@code .csv} file
+     * Creates a new file if one cannot be found
+     * @param F		- The array of floats to append with comma delimiters
+     */
+    public void log(float[] F)
+    {
+        String delim = getDelimiter();
+        try
+        {
+            FileWriter writer = getFileWriter();
+            assert writer != null;
+            StringBuilder sb = new StringBuilder();
+
+            if(prependDateTime)
+            {
+                writer.write(prependNow(delim));
+                sb.append(prependNow(delim));
+            }
+            for (float f : F)
+            {
+                writer.write(f + delim);
+                sb.append(f).append(delim);
+            }
+            writer.write("/n");
             writer.close();
             System.out.println(sb);
         }
