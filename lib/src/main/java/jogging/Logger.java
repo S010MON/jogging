@@ -110,7 +110,7 @@ public class Logger
                 writer.write(s + delim);
                 sb.append(s).append(delim);
             }
-            writer.write("/n");
+            writer.write("\n");
             writer.close();
             System.out.println(sb);
         }
@@ -147,7 +147,7 @@ public class Logger
                 sb.append(i).append(delim);
             }
             writer.close();
-            writer.write("/n");
+            writer.write("\n");
             System.out.println(sb);
         }
         catch (IOException e)
@@ -181,7 +181,7 @@ public class Logger
                 writer.write(d + delim);
                 sb.append(d).append(delim);
             }
-            writer.write("/n");
+            writer.write("\n");
             writer.close();
             System.out.println(sb);
         }
@@ -216,7 +216,7 @@ public class Logger
                 writer.write(f + delim);
                 sb.append(f).append(delim);
             }
-            writer.write("/n");
+            writer.write("\n");
             writer.close();
             System.out.println(sb);
         }
