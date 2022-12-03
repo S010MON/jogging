@@ -98,6 +98,7 @@ public class TestTxtLogger extends TestLogger
             } catch (IOException e) {
                 System.out.println("Unable to read default log.txt file");
                 e.printStackTrace();
+                fail();
             }
 
             assertEquals(exp, act);

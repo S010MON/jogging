@@ -18,7 +18,7 @@ public class TestLogger
     @BeforeEach
     void setUp()
     {
-        for(String path: testPaths)
+        for(String path: validationPaths)
         {
             File testDir = getFile(path, "");
             if (!testDir.exists() || !testDir.isDirectory())
@@ -29,7 +29,7 @@ public class TestLogger
     @AfterEach
     void tearDown()
     {
-        for(String path: testPaths)
+        for(String path: validationPaths)
         {
             File testDir = getFile(path, "");
             if (testDir.exists()) {
